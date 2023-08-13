@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multi-Step Survey Form</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1 id="title">Survey Form</h1>
+    <p id="description">Please provide your information below:</p>
+
+    <div class="container">
+      <form id="survey-form">
+        <div class="tab" id="tab1">
+          <h2>Step 1: Name and Email</h2>
+          <label for="name" id="name-label">Name:</label>
+          <input type="text" id="name" placeholder="Enter your name" required />
+
+          <label for="email" id="email-label">Email:</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="Enter your email"
+            required
+          />
+          <button onclick="nextTab(1, event)">Next</button>
+        </div>
+
+        <div class="tab" id="tab2">
+          <h2>Step 2: Age and gender</h2>
+          <label for="number" id="number-label">Number:</label>
+          <input
+            type="number"
+            id="number"
+            placeholder="Enter your age"
+            min="0" max="100"
+            required
+          />
+
+          <label for="dropdown">What sex are you? :</label>
+          <select id="dropdown">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Others</option>
+          </select>
+          <button onclick="prevTab(1, event)">Previous</button>
+          <button onclick="nextTab(1, event)">Next</button>
+        </div>
+
+        <div class="tab" id="tab3">
+          <h2>Step 3: Experience</h2>
+          <label>How would you rate your overall experience using freeCodeCamp? :</label>
+          <label class="normal"><input type="radio" name="rate" value="excellent" required /> Excellent</label>
+          <label class="normal"
+            ><input type="radio" name="rate" value="good" required/> Good</label
+          >
+          <label class="normal"
+            ><input type="radio" name="rate" value="fair" required/> Fair</label
+          >
+          <label class="normal"
+            ><input type="radio" name="rate" value="bad" required/> Needs improvement</label
+          >
+
+          <label>What FCC topics have you used? Check all that apply :</label>
+          <label class="normal"><input type="checkbox" name="topics" value="html" /> HTML</label>
+          <label class="normal"><input type="checkbox" name="topics" value="js" /> JavaScript</label>
+          <label class="normal"><input type="checkbox" name="topics" value="bootstrap" /> Bootstrap</label>
+          <label class="normal"><input type="checkbox" name="topics" value="jQuery" /> jQuery</label>
+          <label class="normal"><input type="checkbox" name="topics" value="react" /> React</label>
+          <label class="normal"><input type="checkbox" name="topics" value="other" /> Other</label>
+          <button onclick="prevTab(1, event)">Previous</button>
+          <button onclick="nextTab(1, event)">Next</button>
+        </div>
+
+        <div class="tab" id="tab4">
+          <h2>Step 4: Additional Comments</h2>
+          <label for="comments">Additional Comments:</label>
+          <textarea id="comments" placeholder="Enter any comments"></textarea>
+          <button onclick="prevTab(1, event)">Previous</button>
+          <button onclick="return submitForm()" id="submit">Submit</button>
+        </div>
+      </form>
+
+      <div class="thank-you" id="thank-you">
+        <div class="thank-you-icon">🎉</div>
+        <h2>Thank You for Your Submission!</h2>
+        <p>We appreciate your participation.</p>
+      </div>
+      
+
+    <script src="app.js"></script>
+  </body>
+</html>
